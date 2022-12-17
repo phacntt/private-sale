@@ -18,7 +18,7 @@
 docker-compose up -d pg
 ```
 Please check the database: username, password, host, port, databasename from `docker-compose.yml` is same step 3
-- Init schema: `npm run prisma:migrate` (Please read the development section part 2 below before running this command)
+- Init schema: `npm run prisma:migrate` (Please read the development section part 3 below before running this command)
 - Use database management tool (DBeaver) and verify if the database was created correctly
 
 # Development
