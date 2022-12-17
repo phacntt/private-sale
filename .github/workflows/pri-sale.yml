@@ -16,7 +16,7 @@ jobs:
           script: |
             cd code/
             rm -rf pri-sale
-            git clone https://github.com/phacntt/private-sale.git
+            git clone https://${{ secrets.PRISALE_TOKEN_SSH }}@github.com:phacntt/private-sale.git
             cd pri-sale
             DOCKER_BUILDKIT=1 docker build -t pri-sale:$GITHUB_RUN_NUMBER .
             docker stop pri-sale || echo "stop container - OK"
