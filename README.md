@@ -25,10 +25,13 @@ Please check the database: username, password, host, port, databasename from `do
 ## 1. VScode
 - Open "Run and Debug", select the "Dev private-sale" the click on the start debugging button or press F5
 
-## 2. Add a new migration
+## 2. Create file .env.development
+- Add field NODE_ENV and PORT run on BE
+
+## 3. Add a new migration
 - Run `npm run prisma:addMigration [file_name]`, ex: `npm run prisma:addMigration AddCategoryTable`
 - After adding migration file, run `npm run prisma:migrate` to execute the migration file
 - And run `npm run prisma:seed` to initialize available data
 
-## 3. Test API
+## 4. Test API
 - Open `user.http` file, modify the parameters then click on the "Send request" button
