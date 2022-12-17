@@ -3,7 +3,7 @@
 - Node 16.x
 - Docker
 - Docker Compose
-- Tested on Node v14.17.0, npm 6.14.13
+- Tested on Node v16.13.0, npm 8.1.0
 
 ## 2. Install dependences
 - `npm install`
