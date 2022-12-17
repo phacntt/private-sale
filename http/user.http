@@ -1,0 +1,19 @@
+# Base url
+@baseURL = http://localhost:3000/api
+
+###
+# Find all users
+GET {{baseURL}}/users
+
+# Find user by id
+GET {{baseURL}}/users/1
+
+###
+# Create new user
+POST {{baseURL}}/users
+Content-Type: application/json
+
+{
+    "email": "test1@gmail.com",
+    "name": "test1"
+}

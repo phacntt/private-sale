@@ -1,0 +1,25 @@
+# Base url
+@baseURL = http://localhost:3000/api
+
+###
+# Find all posts
+GET {{baseURL}}/posts
+
+# Find post by id
+## /posts/:id
+GET {{baseURL}}/posts/1
+
+# Find post by user id
+## /posts/user/:userId
+GET {{baseURL}}/posts/1
+
+###
+# Create new post
+POST {{baseURL}}/posts
+Content-Type: application/json
+
+{
+    "title": "test1@gmail.com",
+    "content": "test1",
+    "authorId": 7
+}
