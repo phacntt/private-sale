@@ -15,13 +15,13 @@ jobs:
           envs: GITHUB_RUN_NUMBER
           script: |
             cd code/
-            rm -rf pri-sale
+            rm -rf private-sale
             git clone https://${{ secrets.PRISALE_TOKEN_SSH }}@github.com:phacntt/private-sale.git
-            cd pri-sale
-            DOCKER_BUILDKIT=1 docker build -t pri-sale:$GITHUB_RUN_NUMBER .
-            docker stop pri-sale || echo "stop container - OK"
-            docker rm pri-sale || echo "remove container - OK"
-            docker run -d --restart unless-stopped --name pri-sale -p 9000:9000 \
+            cd private-sale
+            DOCKER_BUILDKIT=1 docker build -t private-sale:$GITHUB_RUN_NUMBER .
+            docker stop private-sale || echo "stop container - OK"
+            docker rm private-sale || echo "remove container - OK"
+            docker run -d --restart unless-stopped --name private-sale -p 9000:9000 \
                 -e NODE_ENV=${{ secrets.NODE_ENV }} \
                 -e HOST=172.31.33.255 \
-                pri-sale:$GITHUB_RUN_NUMBER
+                private-sale:$GITHUB_RUN_NUMBER
