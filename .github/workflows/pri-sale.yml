@@ -21,7 +21,7 @@ jobs:
             DOCKER_BUILDKIT=1 docker build -t private-sale:$GITHUB_RUN_NUMBER .
             docker stop private-sale || echo "stop container - OK"
             docker rm private-sale || echo "remove container - OK"
-            docker run -d --restart unless-stopped --name private-sale -p 9000:9000 \
+            docker run -d --name private-sale -p 9000:9000 \
                 -e NODE_ENV=${{ secrets.NODE_ENV }} \
                 -e HOST=172.31.33.255 \
                 private-sale:$GITHUB_RUN_NUMBER
