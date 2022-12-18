@@ -1,8 +1,8 @@
 FROM node:16-alpine
 WORKDIR /usr/src/app/pri-sale
 COPY ./package*.json ./
-RUN npm install
+RUN yarn
 COPY . .
-RUN npm run build
+RUN yarn build
 
-CMD [ "node", "dist/src/index.js" ]
+CMD ["node", "dist/src/index.js"]
