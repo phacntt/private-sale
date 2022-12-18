@@ -11,12 +11,12 @@ class PostRoute {
     }
     
     private initializeRoutes() {
-    this.router.get(`/`, this.postController.getPosts);
-    this.router.get(`/:id(\\d+)`, this.postController.getPostById);
-    this.router.get(`/user/:userId(\\d+)`, this.postController.getPostByUserId)
-    this.router.post(``, this.postController.createPost);
-    // this.router.put(`/:id(\\d+)`, this.userController.updateBook);
-    // this.router.delete(`/:id(\\d+)`, this.userController.deleteBook);
+        this.router.get(`/`, this.postController.getPosts);
+        this.router.get(`/:id(\\d+)`, this.postController.getPostById);
+        this.router.get(`/user/:userId(\\d+)`, this.postController.getPostByUserId)
+        this.router.post(``, this.postController.createPost);
+        // this.router.put(`/:id(\\d+)`, this.userController.updateBook);
+        // this.router.delete(`/:id(\\d+)`, this.userController.deleteBook);
     }
 }
 

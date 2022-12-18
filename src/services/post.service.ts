@@ -22,7 +22,6 @@ class PostService {
 
         const authorId = findPost?.authorId
         const infoAuthor = await prisma.user.findUnique({where: {id: Number(authorId)}})
-        findPost.author = infoAuthor
 
         if (!infoAuthor) throw new HttpException(409, "Not found author");
 

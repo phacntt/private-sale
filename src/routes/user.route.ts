@@ -12,9 +12,9 @@ class UserRoute {
     }
     
     private initializeRoutes() {
-    this.router.get(`/`, this.userController.getUsers);
-    this.router.get(`/:id(\\d+)`, this.userController.getUsersById);
-    this.router.post(``, this.userController.createUser);
+        this.router.get(`/`, this.userController.getUsers);
+        this.router.get(`/:id(\\d+)`, this.userController.getUsersById);
+        this.router.post(``, this.userController.createUser);
     }
 }
 
