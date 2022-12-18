@@ -1,7 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 import { HttpException } from "../exception/HttpException";
-import { User } from "../interfaces/user.interface";
-import { context } from "../types/context.type";
 import { isEmpty } from "../utils/isEmpty";
 import { CreateUserDto } from "../dtos/user.dto";
 

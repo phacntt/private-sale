@@ -17,13 +17,8 @@ class PostService {
     public async findPostById(id: number) {
         if (isEmpty(id)) throw new HttpException(409, "Post doesn't exists!!");
     
-        const findPost = await prisma.post.findUnique({where: {id: id}})
+        const findPost = await prisma.post.findUnique({where: {id: id}, include: {author: true}})
         if (!findPost) throw new HttpException(409, "Post doesn't exists!!");
-
-        const authorId = findPost?.authorId
-        const infoAuthor = await prisma.user.findUnique({where: {id: Number(authorId)}})
-
-        if (!infoAuthor) throw new HttpException(409, "Not found author");
 
         return findPost;
     }
