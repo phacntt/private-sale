@@ -3,7 +3,7 @@ FROM node:16-alpine3.16
 WORKDIR /usr/src/app/pri-sale
 
 COPY ./package*.json ./
-COPY ./prisma ./
+# COPY ./prisma ./
 
 RUN npm i
 RUN npx prisma generate
