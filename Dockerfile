@@ -6,8 +6,9 @@ COPY ./package*.json ./
 # COPY ./prisma ./
 
 RUN npm i
-RUN npx prisma generate
 COPY . .
 RUN npm run build
+
+RUN npx prisma generate
 
 CMD ["node", "dist/src/index.js"]
