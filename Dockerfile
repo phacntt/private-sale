@@ -2,7 +2,7 @@ FROM node:16-alpine
 WORKDIR /usr/src/app/pri-sale
 
 COPY ./package*.json ./
-COPY ./prisma ./prisma
+COPY ./prisma ./prisma/
 
 RUN npm install
 COPY . .
