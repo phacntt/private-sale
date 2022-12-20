@@ -5,7 +5,8 @@ COPY ./package*.json ./
 COPY ./prisma ./prisma
 
 RUN npm install
-RUN npx prisma generate
+RUN npm i -g prisma
+RUN prisma generate
 COPY . .
 
 RUN npm run build
