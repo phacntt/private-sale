@@ -3,12 +3,11 @@ FROM node:16-alpine
 WORKDIR /usr/src/app/pri-sale
 
 COPY ./package*.json ./
-# COPY ./prisma ./
+COPY ./prisma ./
 
 RUN npm i
+RUN npx prisma generate
 COPY . .
 RUN npm run build
-
-RUN npx prisma generate
 
 CMD ["node", "dist/src/index.js"]
