@@ -1,4 +1,6 @@
 FROM node:16-alpine
+RUN apt-get update && apt-get install -y openssl
+
 WORKDIR /usr/src/app/pri-sale
 
 COPY ./package*.json ./
