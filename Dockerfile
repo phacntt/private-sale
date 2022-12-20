@@ -4,7 +4,8 @@ WORKDIR /usr/src/app/pri-sale
 COPY ./package*.json ./
 COPY ./prisma ./prisma/
 
-RUN npm install
+RUN npm i
+RUN npx prisma generate
 COPY . .
 RUN npm run build
 
