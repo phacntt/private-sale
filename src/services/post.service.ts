@@ -1,4 +1,4 @@
-import { PrismaClient } from '../prisma-client'
+import { PrismaClient } from '@prisma/client'
 import { HttpException } from "../exception/HttpException";
 import { isEmpty } from "../utils/isEmpty";
 import { CreateUserDto } from "../dtos/user.dto";
