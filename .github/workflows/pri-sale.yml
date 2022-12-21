@@ -27,4 +27,5 @@ jobs:
                 -e POSTGRES_PASSWORD=${{ secrets.PRISALE_PASSWORD }} \
                 -e POSTGRES_USER=${{ secrets.PRISALE_USERNAME }} \
                 -e POSTGRES_DB=${{ secrets.PRISALE_DB_NAME }} \
+                -e DATABASE_URL=${{ secrets.PRISALE_DATABASE_URL }} \
                 private-sale:$GITHUB_RUN_NUMBER
