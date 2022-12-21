@@ -1,7 +1,7 @@
 import { HttpException } from "../exception/HttpException";
 import { isEmpty } from "../utils/isEmpty";
 import { CreateUserDto } from "../dtos/user.dto";
-import { Context, context } from "../types/context.type";
+import { context } from "../types/context.type";
 
 class UserService {
   public clients = context

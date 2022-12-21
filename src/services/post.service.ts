@@ -1,9 +1,7 @@
-import { PrismaClient } from '@prisma/client'
 import { HttpException } from "../exception/HttpException";
 import { isEmpty } from "../utils/isEmpty";
 import { CreatePostDto } from "../dtos/post.dto";
-import { DB_DATABASE_URL } from '../config';
-import { Context, context } from '../types/context.type';
+import { context } from '../types/context.type';
 
 class PostService {
     public clients = context
