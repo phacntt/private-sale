@@ -1,30 +1,21 @@
-import { PrismaClient } from "@prisma/client";
 import { HttpException } from "../exception/HttpException";
 import { isEmpty } from "../utils/isEmpty";
 import { CreateUserDto } from "../dtos/user.dto";
-import { DB_DATABASE, DB_DATABASE_URL, DB_HOST, DB_PASSWORD, DB_USERNAME } from "../config";
-
-const prisma = new PrismaClient({
-  datasources: {
-    db: {
-      url: `postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:5436/${DB_DATABASE}?schema=public`
-    }
-  }
-});
-
+import { Context, context } from "../types/context.type";
 
 class UserService {
+  public clients = context
   public async getUsers() {
-    const users = await prisma.user.findMany();
+    const users = await this.clients.prisma.user.findMany();
     if (!users) throw new HttpException(409, "You're not user");
-
+    console.log()
     return users;
   }
 
   public async findUserById(userId: number) {
     if (isEmpty(userId)) throw new HttpException(409, "You not permision");
 
-    const findUser = await prisma.user.findUnique({
+    const findUser = await this.clients.prisma.user.findUnique({
       where: { id: userId },
       include: { posts: true },
     });
@@ -40,7 +31,7 @@ class UserService {
         "You're email not found!! Please check again"
       );
 
-    const findUser = await prisma.user.findUnique({ where: { email } });
+    const findUser = await this.clients.prisma.user.findUnique({ where: { email } });
 
     return findUser;
   }
@@ -48,7 +39,7 @@ class UserService {
   public async createUser(userData: CreateUserDto) {
     if (isEmpty(userData)) throw new HttpException(400, "You're not userData");
 
-    const findUser = await prisma.user.findUnique({
+    const findUser = await this.clients.prisma.user.findUnique({
       where: { email: userData.email },
     });
     if (findUser)
@@ -57,7 +48,7 @@ class UserService {
         `You're email ${userData.email} already exists`
       );
 
-    const createUserData = await prisma.user.create({ data: userData });
+    const createUserData = await this.clients.prisma.user.create({ data: userData });
 
     return createUserData;
   }
