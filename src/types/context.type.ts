@@ -1,11 +1,13 @@
 import { PrismaClient } from "@prisma/client";
-import { DB_DATABASE_URL } from "../config";
+import { DB_HOST, NODE_ENV } from "../config";
+
+const host = NODE_ENV === 'development' ? 'localhost' : DB_HOST 
 
 const prisma = new PrismaClient({
   log: ["query", "info", "warn", "error"],
   datasources: {
     db: {
-      url: "postgresql://privateSales:123456@172.31.33.255:5436/privateSales_DB?schema=public",
+      url: `postgresql://privateSales:123456@${host}:5436/privateSales_DB?schema=public`,
     },
   },
 });

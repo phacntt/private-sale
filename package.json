@@ -8,8 +8,8 @@
         "start": "node dist/src/index.js",
         "build": "tsc -p .",
         "watch": "tsc -w",
-        "prisma:addMigration": "prisma migrate dev --create-only --name",
-        "prisma:migrate": "prisma migrate dev",
+        "prisma:addMigration": "prisma migrate dev --name",
+        "prisma:migrate": "prisma migrate deploy",
         "prisma:seed": "prisma db seed"
     },
     "repository": {
