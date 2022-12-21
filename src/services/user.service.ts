@@ -2,15 +2,16 @@ import { PrismaClient } from "@prisma/client";
 import { HttpException } from "../exception/HttpException";
 import { isEmpty } from "../utils/isEmpty";
 import { CreateUserDto } from "../dtos/user.dto";
-import { DB_DATABASE_URL } from "../config";
+import { DB_DATABASE, DB_DATABASE_URL, DB_HOST, DB_PASSWORD, DB_USERNAME } from "../config";
 
 const prisma = new PrismaClient({
   datasources: {
     db: {
-      url: process.env.DATABASE_URL
+      url: `postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:5436/${DB_DATABASE}?schema=public`
     }
   }
 });
+
 
 class UserService {
   public async getUsers() {
