@@ -7,7 +7,6 @@ COPY ./prisma ./prisma
 
 RUN npm i
 RUN npx prisma generate
-RUN npm run prisma:migrate Create_Table
 COPY . .
 RUN npm run build
 
