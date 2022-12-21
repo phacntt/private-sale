@@ -3,8 +3,15 @@ import { HttpException } from "../exception/HttpException";
 import { isEmpty } from "../utils/isEmpty";
 import { CreateUserDto } from "../dtos/user.dto";
 import { CreatePostDto } from "../dtos/post.dto";
+import { DB_DATABASE_URL } from '../config';
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+    datasources: {
+      db: {
+        url: DB_DATABASE_URL
+      }
+    }
+  });
 
 class PostService {
     public async getPosts() {    

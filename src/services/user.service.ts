@@ -2,8 +2,15 @@ import { PrismaClient } from "@prisma/client";
 import { HttpException } from "../exception/HttpException";
 import { isEmpty } from "../utils/isEmpty";
 import { CreateUserDto } from "../dtos/user.dto";
+import { DB_DATABASE_URL } from "../config";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+  datasources: {
+    db: {
+      url: DB_DATABASE_URL
+    }
+  }
+});
 
 class UserService {
   public async getUsers() {
