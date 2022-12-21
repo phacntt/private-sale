@@ -24,8 +24,5 @@ jobs:
             docker run -d --name private-sale -p 9000:9000 \
                 -e NODE_ENV=${{ secrets.NODE_ENV }} \
                 -e HOST=172.31.33.255 \
-                -e DB_PASSWORD=${{ secrets.PRISALE_PASSWORD }} \
-                -e DB_USERNAME=${{ secrets.PRISALE_USERNAME }} \
-                -e DB_DATABASE=${{ secrets.PRISALE_DB_NAME }} \
                 -e DATABASE_URL=${{ secrets.PRISALE_DATABASE_URL }} \
                 private-sale:$GITHUB_RUN_NUMBER
