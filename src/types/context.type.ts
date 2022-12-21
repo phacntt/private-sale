@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-import { DB_HOST, NODE_ENV } from "../config";
+import {  HOST, NODE_ENV } from "../config";
 
-const host = NODE_ENV === 'development' ? 'localhost' : DB_HOST 
+const host = NODE_ENV === 'development' ? 'localhost' : HOST
 
 const prisma = new PrismaClient({
   log: ["query", "info", "warn", "error"],
