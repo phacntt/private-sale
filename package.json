@@ -8,9 +8,9 @@
         "start": "node dist/src/index.js",
         "build": "tsc -p .",
         "watch": "tsc -w",
-        "prisma:addMigration": "prisma migrate dev --create-only --name",
-        "prisma:migrate": "prisma migrate dev",
-        "prisma:seed": "prisma db seed"
+        "prisma:addMigration": "dotenv -e .env -- npx prisma migrate dev --create-only --name",
+        "prisma:migrate": "dotenv -e .env -- npx prisma migrate dev",
+        "prisma:seed": "dotenv -e .env -- npx prisma db seed"
     },
     "repository": {
         "type": "git",
