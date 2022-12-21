@@ -10,4 +10,6 @@ RUN npx prisma generate
 COPY . .
 RUN npm run build
 
-CMD ["node", "dist/src/index.js"]
+RUN ["chmod", "+x", "start.sh"]
+
+ENTRYPOINT ["./start.sh"]
