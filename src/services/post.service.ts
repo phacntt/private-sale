@@ -8,7 +8,7 @@ import { DB_DATABASE_URL } from '../config';
 const prisma = new PrismaClient({
     datasources: {
       db: {
-        url: DB_DATABASE_URL?.toString()
+        url: process.env.DATABASE_URL
       }
     }
   });
