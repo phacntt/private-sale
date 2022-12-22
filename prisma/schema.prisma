@@ -35,9 +35,3 @@ model Account {
   name  String?
   phone String
 }
-
-model Animal {
-  id    Int     @id @default(autoincrement())
-  name String
-  live String
-}

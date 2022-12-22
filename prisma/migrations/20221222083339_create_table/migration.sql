@@ -26,6 +26,7 @@ CREATE TABLE "Account" (
     "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
     "name" TEXT,
+    "phone" TEXT NOT NULL,
 
     CONSTRAINT "Account_pkey" PRIMARY KEY ("id")
 );
