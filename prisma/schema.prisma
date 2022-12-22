@@ -40,4 +40,5 @@ model Weapon {
   id    Int     @id @default(autoincrement())
   email String  @unique
   nameMain  String?
+  critRate Int
 }
