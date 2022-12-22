@@ -7,7 +7,7 @@ const prisma = new PrismaClient({
   log: ["query", "info", "warn", "error"],
   datasources: {
     db: {
-      url: `postgresql://privateSales:123456@${host}:5436/privateSales_DB?schema=public`,
+      url: `postgresql://privateSales:123456@${host}:5432/privateSales_DB?schema=public`,
     },
   },
 });
